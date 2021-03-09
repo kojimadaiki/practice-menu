@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\Auth\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,7 @@ Route::get('/practice/edit/{id}', [PracticeController::class, 'edit'])->name('ed
 Route::post('/practice/update', [PracticeController::class, 'update'])->name('update');
 
 Route::post('/practice/delete/{id}', [PracticeController::class, 'delete'])->name('delete');
+
+Route::get('/user', [AuthController::class, 'user'])->name('user');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
