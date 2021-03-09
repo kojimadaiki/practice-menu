@@ -149,7 +149,9 @@ return [
         'title' => 'タイトル',
         'style' => '種目',
         'times' => '本数',
-        'content' => 'ブログ内容'
+        'content' => 'ブログ内容',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード'
     ],
 
 ];
