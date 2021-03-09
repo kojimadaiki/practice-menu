@@ -31,6 +31,15 @@ Route::post('/practice/update', [PracticeController::class, 'update'])->name('up
 
 Route::post('/practice/delete/{id}', [PracticeController::class, 'delete'])->name('delete');
 
-Route::get('/user', [AuthController::class, 'user'])->name('user');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/user', [AuthController::class, 'user'])->name('user');
+
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+});
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
+});

@@ -6,11 +6,17 @@
   <h1 class="h3 mb-3 fw-normal">ログインフォーム</h1>
   @if ($errors ->any())
   <div class="alert alert-danger">
+    @foreach ($errors->all() as $error)
     <ul>
-      @foreach ($errors->all() as $error)
       <li>{{ $error }}</li>
-      @endforeach
     </ul>
+    @endforeach
+
+    @if (session('login_error'))
+    <div class="alert alert-danger">
+      {{ session('login_error') }}
+    </div>
+    @endif
   </div>
   @endif
   <label for="inputEmail" class="visually-hidden">Email address</label>
