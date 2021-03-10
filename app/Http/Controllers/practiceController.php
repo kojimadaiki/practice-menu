@@ -97,4 +97,9 @@ class PracticeController extends Controller
     \Session::flash('err_msg', '削除しました');
     return redirect(route('practice'));
   }
+
+  public function post() {
+
+    return view('post');
+  }
 }
