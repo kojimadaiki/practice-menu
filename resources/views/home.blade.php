@@ -1,7 +1,7 @@
-@extends('layout')
+@extends('layouts.app')
 @section('title', 'ログインフォーム')
 @section('content')
-  <div class="container">
+<div class="container">
     <div class="mt-5">
       @if (session('login_success'))
       <div class="alert alert-success">
@@ -16,3 +16,4 @@
     </div>
   </div>
 @endsection
+
