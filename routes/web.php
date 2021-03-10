@@ -40,3 +40,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/post', [PracticeController::class, 'post'])->name('post');
 
+Route::get('/watch', [PracticeController::class, 'watch'])->name('watch');
