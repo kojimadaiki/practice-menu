@@ -31,7 +31,6 @@ Route::post('/practice/update', [PracticeController::class, 'update'])->name('up
 
 Route::post('/practice/delete/{id}', [PracticeController::class, 'delete'])->name('delete');
 
-Route::get('/user', [AuthController::class, 'user'])->name('user');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
@@ -40,3 +39,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/post', [PracticeController::class, 'post'])->name('post');
+
