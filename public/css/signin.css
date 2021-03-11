@@ -36,14 +36,19 @@ body {
 .inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
   box-sizing: content-box;
 }
 
 .main {
   height: 800px;
+  width: 100%;
   background-image: url("../images/ishikawa.jpg");
   background-size: cover;
+}
+
+.main-bg {
+  height: 100%;
+  background: rgba(255,255,255,0.6);
 }
 
 
