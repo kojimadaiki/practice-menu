@@ -17,7 +17,7 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-Route::get('/', [PracticeController::class, 'top'])->name('practice');
+Route::get('/', [PracticeController::class, 'top'])->name('user');
 
 Route::get('/practice/create', [PracticeController::class, 'create'])->name('create');
 
@@ -38,5 +38,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/post', [PracticeController::class, 'post'])->name('post');
+Route::get('/post', [PracticeController::class, 'post'])->name('post')->middleware('auth');
 
+Route::get('/watch', [PracticeController::class, 'watch'])->name('watch')->middleware('auth');

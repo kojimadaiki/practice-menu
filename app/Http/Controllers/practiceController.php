@@ -102,4 +102,9 @@ class PracticeController extends Controller
 
     return view('post');
   }
+
+  public function watch() {
+
+    return view('watch');
+  }
 }

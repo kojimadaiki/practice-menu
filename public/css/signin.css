@@ -32,3 +32,23 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+.main {
+  height: 800px;
+  width: 100%;
+  background-image: url("../images/ishikawa.jpg");
+  background-size: cover;
+}
+
+.main-bg {
+  height: 100%;
+  background: rgba(255,255,255,0.6);
+}
+
+
