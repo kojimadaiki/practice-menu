@@ -36,8 +36,10 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/post', [PracticeController::class, 'post'])->name('post')->middleware('auth');
+
+Route::post('/menu', [PracticeController::class, 'menuPost'])->name('menu')->middleware('auth');
 
 Route::get('/watch', [PracticeController::class, 'watch'])->name('watch')->middleware('auth');
