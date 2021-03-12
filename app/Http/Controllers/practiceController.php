@@ -45,7 +45,7 @@ class PracticeController extends Controller
       abort(500);
     }
     \Session::flash('err_msg', 'ブログを登録しました');
-      return redirect(route('practice'));
+      return redirect(route('user'));
   }
 
   public function edit($id) {
@@ -101,6 +101,21 @@ class PracticeController extends Controller
   public function post() {
 
     return view('post');
+  }
+
+  public function menuPost(PracticeRequest $request) {
+    $inputs = $request->all();
+
+    \DB::beginTransaction();
+    try {
+      Practice::create($inputs);
+      \DB::commit();
+    } catch(\Throwable $e) {
+      \DB::rollback();
+      abort(500);
+    }
+    \Session::flash('err_msg', 'ブログを登録しました');
+      return redirect(route('user'));
   }
 
   public function watch() {

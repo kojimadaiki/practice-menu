@@ -24,11 +24,14 @@ class PracticeRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required | max:100',
-            'style' => 'required',
-            'times' => 'required',
-            'content' => 'required'
+            'title' => 'required | max:100', // Swim, Kick, Pull, W-up
+            'style' => 'required', // 種目
+            'times' => 'required', // 本数
+            'strength' => 'required', // 強度・練習内容
+            'long' => 'required', // 距離
+            'time' => 'required', // サークル
+            'total' => 'required', // トータル
+            'impression' => 'required', // 感想・反省
         ];
     }
 }
-

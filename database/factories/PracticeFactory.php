@@ -25,7 +25,11 @@ class PracticeFactory extends Factory
             'title' => $this->faker->word,
             'style' => $this->faker->word,
             'times' => $this->faker->randomDigitNotNull,
-            'content' => $this->faker->realtext
+            'strength' => $this->faker->word,
+            'long' => $this->faker->year,
+            'time' => $this->faker->randomDigitNotNull,
+            'total' => $this->faker->year,
+            'impression' => $this->faker->realText,
         ];
     }
 }

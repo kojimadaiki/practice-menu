@@ -14,6 +14,10 @@ class Practice extends Model
         'title',
         'style',
         'times',
-        'content'
+        'strength',
+        'long',
+        'time',
+        'total',
+        'impression',
     ];
 }
