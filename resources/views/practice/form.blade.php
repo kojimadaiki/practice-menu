@@ -51,7 +51,7 @@
         @endif
       </div>
       <div class="mt-5">
-        <a class="btn btn-secondary" href="{{ route('practice') }}">
+        <a class="btn btn-secondary" href="{{ route('user') }}">
           キャンセル
         </a>
         <button type="submit" class="btn btn-primary">
