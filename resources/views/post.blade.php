@@ -3,8 +3,15 @@
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset-2">
-    <h2>メイン練習を保存する</h2>
     <form method="POST" action="{{ route('menu') }}" onSubmit="return checkSubmit()">
+      <div class="top">
+        <div class="top-message col-md-8">
+          <h2>メイン練習を保存する</h2>
+        </div>
+        <div class="practice-date col-md-4">
+          <p><input id="date" name="date" class="form-control" value="" type="text" placeholder="練習日時/ 開始時間"></p>
+        </div>
+      </div>
       @csrf
       @if (count($errors) > 0)
       <div class="alert alert-danger">
@@ -25,7 +32,7 @@
       </div>
       <table class="table table-striped">
         <tr>
-          <th>タイトル</th>
+          <th>SKP</th>
           <th>距離</th>
           <th>本数</th>
           <th>サークル</th>

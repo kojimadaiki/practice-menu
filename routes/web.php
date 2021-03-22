@@ -23,9 +23,9 @@ Route::get('/practice/create', [PracticeController::class, 'create'])->name('cre
 
 Route::post('/practice/store', [PracticeController::class, 'store'])->name('store');
 
-Route::get('/practice/{id}', [PracticeController::class, 'show'])->name('show');
+// Route::get('/practice/{id}', [PracticeController::class, 'show'])->name('show');
 
-Route::get('/practice/edit/{id}', [PracticeController::class, 'edit'])->name('edit');
+// Route::get('/practice/edit/{id}', [PracticeController::class, 'edit'])->name('edit');
 
 Route::post('/practice/update', [PracticeController::class, 'update'])->name('update');
 
@@ -43,3 +43,7 @@ Route::get('/post', [PracticeController::class, 'post'])->name('post')->middlewa
 Route::post('/menu', [PracticeController::class, 'menuPost'])->name('menu')->middleware('auth');
 
 Route::get('/watch', [PracticeController::class, 'watch'])->name('watch')->middleware('auth');
+
+Route::get('/watch/edit/{id}', [PracticeController::class, 'edit'])->name('edit')->middleware('auth');
+
+Route::get('/watch/{id}', [PracticeController::class, 'show'])->name('show');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Practice;
+use App\Models\Menu;
 
 use App\Http\Requests\PracticeRequest;
 use App\Http\Requests\MenuRequest;
@@ -19,17 +20,17 @@ class PracticeController extends Controller
     return view('practice.top', ['practices' => $practices]);
   }
 
-  public function show($id) {
+  // public function show($id) {
 
-    $practice = Practice::find($id);
+  //   $practice = Practice::find($id);
 
-    if (is_null($practice)) {
-      \Session::flash('err_msg', 'データがありません');
-      return redirect(route('practice'));
-    }
+  //   if (is_null($practice)) {
+  //     \Session::flash('err_msg', 'データがありません');
+  //     return redirect(route('practice'));
+  //   }
 
-    return view('practice.show', ['practice' => $practice]);
-  }
+  //   return view('practice.show', ['practice' => $practice]);
+  // }
 
   public function create() {
     return view('practice.form');
@@ -50,16 +51,16 @@ class PracticeController extends Controller
       return redirect(route('user'));
   }
 
-  public function edit($id) {
-    $practice = Practice::find($id);
+  // public function edit($id) {
+  //   $practice = Practice::find($id);
 
-    if (is_null($practice)) {
-      \Session::flash('err_msg', 'データがありません');
-      return redirect(route('practice'));
-    }
+  //   if (is_null($practice)) {
+  //     \Session::flash('err_msg', 'データがありません');
+  //     return redirect(route('practice'));
+  //   }
 
-    return view('practice.edit', ['practice' => $practice]);
-  }
+  //   return view('practice.edit', ['practice' => $practice]);
+  // }
 
   public function update(PracticeRequest $request) {
     $inputs = $request->all();
@@ -116,6 +117,7 @@ class PracticeController extends Controller
     $inputs->strength = $request->strength;
     $inputs->long = $request->long;
     $inputs->total = $request->total;
+    $inputs->date = $request->date;
     $inputs->impression = $request->impression;
 
 
@@ -134,6 +136,31 @@ class PracticeController extends Controller
 
   public function watch() {
 
-    return view('watch');
+    $practices = Practice::all();
+
+    return view('watch', ['practices' => $practices]);
+  }
+
+  public function edit($id) {
+    $practice = Practice::find($id);
+
+    if (is_null($practice)) {
+      \Session::flash('err_msg', 'データがありません');
+      return redirect(route('practice'));
+    }
+
+    return view('edit', ['practice' => $practice]);
+  }
+
+  public function show($id) {
+
+    $practice = Practice::find($id);
+
+    if (is_null($practice)) {
+      \Session::flash('err_msg', 'データがありません');
+      return redirect(route('watch'));
+    }
+
+    return view('show', ['practice' => $practice]);
   }
 }

@@ -16,6 +16,7 @@ class CreatePracticesTable extends Migration
         Schema::create('practices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('date'); //練習を行った日程、時間
             $table->string('title'); // Swim, Kick, Pull, W-up
             $table->integer('long'); // 距離
             $table->integer('times'); // 本数

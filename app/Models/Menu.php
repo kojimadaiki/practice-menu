@@ -20,6 +20,7 @@ class Menu extends Model
         'total',
         'impression',
         'user_id',
+        'date',
     ];
 
     public function user() {
