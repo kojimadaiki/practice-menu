@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2>ブログ編集フォーム</h2>
-    <form method="POST" action="{{ route('update') }}" onSubmit="return checkSubmit()">
+    <form method="POST" action="" onSubmit="return checkSubmit()">
       @csrf
       <input type="hidden" name="id" value="{{ $practice->id }}">
       <div class="form-group">
@@ -52,7 +52,7 @@
         @endif
       </div>
       <div class="mt-5">
-        <a class="btn btn-secondary" href="{{ route('practice') }}">
+        <a class="btn btn-secondary" href="{{ route('watch') }}">
           キャンセル
         </a>
         <button type="submit" class="btn btn-primary">
