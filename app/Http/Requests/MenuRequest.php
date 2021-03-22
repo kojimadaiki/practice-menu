@@ -32,6 +32,7 @@ class MenuRequest extends FormRequest
             'time' => 'required', // サークル
             'total' => 'required', // トータル
             'impression' => 'required', // 感想・反省
+            'date' => 'required', //練習を行った日程、時間
         ];
     }
 }
