@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Practice extends Model
+class Menu extends Model
 {
     use HasFactory;
     protected $table = 'practices';
@@ -19,6 +19,10 @@ class Practice extends Model
         'time',
         'total',
         'impression',
-        'user_id'
+        'user_id',
     ];
+
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

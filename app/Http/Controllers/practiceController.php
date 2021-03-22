@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Practice;
 
 use App\Http\Requests\PracticeRequest;
+use App\Http\Requests\MenuRequest;
+
 
 class PracticeController extends Controller
 {
@@ -103,14 +105,26 @@ class PracticeController extends Controller
     return view('post');
   }
 
-  public function menuPost(PracticeRequest $request) {
-    $inputs = $request->all();
+  public function menuPost(MenuRequest $request) {
+
+    $inputs = new Practice;
+    $inputs->user_id = $request->user()->id;
+    $inputs->title = $request->title;
+    $inputs->style = $request->style;
+    $inputs->times = $request->times;
+    $inputs->time = $request->time;
+    $inputs->strength = $request->strength;
+    $inputs->long = $request->long;
+    $inputs->total = $request->total;
+    $inputs->impression = $request->impression;
+
 
     \DB::beginTransaction();
     try {
-      Practice::create($inputs);
+      $inputs->save();
       \DB::commit();
     } catch(\Throwable $e) {
+      dd($e);
       \DB::rollback();
       abort(500);
     }

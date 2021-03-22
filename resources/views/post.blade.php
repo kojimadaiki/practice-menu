@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset-2">
-    <h2>練習メニューを保存する</h2>
+    <h2>メイン練習を保存する</h2>
     <form method="POST" action="{{ route('menu') }}" onSubmit="return checkSubmit()">
       @csrf
       @if (count($errors) > 0)
@@ -32,7 +32,6 @@
           <th>種目</th>
           <th>強度</th>
           <th>トータル</th>
-          <th>感想・反省</th>
         </tr>
         <tr>
           <td>
@@ -55,38 +54,12 @@
           </td>
           <td>
             <input id="total" name="total" class="form-control" rows="4">
-          </td>
-          <td>
-            <input id="impression" name="impression" class="form-control" rows="4">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input id="title" name="title" class="form-control" value="" type="text">
-          </td>
-          <td>
-            <input id="long" name="long" class="form-control" rows="4">
-          </td>
-          <td>
-            <input id="times" name="times" class="form-control" rows="4">
-          </td>
-          <td>
-            <input id="time" name="time" class="form-control" rows="4">
-          </td>
-          <td>
-            <input id="style" name="style" class="form-control" rows="4">
-          </td>
-          <td>
-            <input id="strength" name="strength" class="form-control" rows="4">
-          </td>
-          <td>
-            <input id="total" name="total" class="form-control" rows="4">
-          </td>
-          <td>
-            <input id="impression" name="impression" class="form-control" rows="4">
           </td>
         </tr>
       </table>
+      <div class="impression">
+        <textarea id="impression" name="impression" class="form-control" rows="4" placeholder="練習についての感想・反省"></textarea>
+      </div>
       <div class="mt-5">
         <a class="btn btn-secondary" href="{{ route('user') }}">
           キャンセル
