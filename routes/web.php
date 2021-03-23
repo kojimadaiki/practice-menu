@@ -30,7 +30,7 @@ Route::post('/practice/store', [PracticeController::class, 'store'])->name('stor
 
 // Route::post('/practice/update', [PracticeController::class, 'update'])->name('update');
 
-Route::post('/practice/delete/{id}', [PracticeController::class, 'delete'])->name('delete');
+// Route::post('/practice/delete/{id}', [PracticeController::class, 'delete'])->name('delete');
 
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -62,3 +62,5 @@ Route::get('/watch/edit/{id}', [MenuController::class, 'edit'])->name('edit')->m
 Route::get('/watch/{id}', [MenuController::class, 'show'])->name('show')->middleware('auth');
 
 Route::post('/watch/update', [MenuController::class, 'update'])->name('update')->middleware('auth');
+
+Route::post('/watch/delete/{id}', [MenuController::class, 'delete'])->name('delete')->middleware('auth');

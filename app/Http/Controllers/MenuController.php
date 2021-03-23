@@ -44,7 +44,7 @@ class MenuController extends Controller
       \DB::rollback();
       abort(500);
     }
-    \Session::flash('err_msg', 'ブログを登録しました');
+    \Session::flash('err_msg', 'メニューを登録しました');
       return redirect(route('user'));
   }
 
@@ -102,7 +102,26 @@ class MenuController extends Controller
       \DB::rollback();
       abort(500);
     }
-    \Session::flash('err_msg', 'ブログを更新しました');
+    \Session::flash('err_msg', 'メニューを更新しました');
       return redirect(route('watch'));
+  }
+
+  public function delete($id) {
+
+    $menus = Menu::all();
+
+    if (empty($id)) {
+      \Session::flash('err_msg', 'データがありません');
+      return redirect(route('user'));
+    }
+
+    try {
+      Menu::destroy($id);
+    } catch(\Throwable $e) {
+      abort(500);
+    }
+
+    \Session::flash('err_msg', '削除しました');
+    return redirect(route('watch', ['menus' => $menus]));
   }
 }
