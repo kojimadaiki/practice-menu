@@ -3,28 +3,26 @@
 @section('content')
 <div class="row">
   <div class="col-md-10 col-md-offset-2">
-    <h2>ブログ記事一覧</h2>
+    <h2>メイン練習一覧</h2>
     @if (session('err_msg'))
     <p class="text_danger">{{ session('err_msg')}}</p>
     @endif
     <table class="table table-striped">
       <tr>
-        <th>記事番号</th>
-        <th>タイトル</th>
         <th>練習日時</th>
         <th></th>
         <th></th>
       </tr>
-      @foreach($practices as $practice)
+      @foreach($menus as $menu)
+      @if( ( $menu->user_id ) === ( Auth::user()->id ) )
       <tr>
-        <td>{{ $practice->id }}</td>
-        <td><a href="/watch/{{ $practice->id }}">{{ $practice->title }}</a></td>
-        <td>{{ $practice->date }}</td>
-        <td><button type="button" class="btn btn-primary" onclick="location.href='/watch/edit/{{ $practice->id }}'">編集</button></td>
-        <form method="POST" action="{{ route('delete', $practice->id) }}" onSubmit="return checkDelete()">
+        <td><a href="/watch/{{ $menu->id }}">{{ $menu->date }}</a></td>
+        <td><button type="button" class="btn btn-primary" onclick="location.href='/watch/edit/{{ $menu->id }}'">編集</button></td>
+        <form method="POST" action="{{ route('delete', $menu->id) }}" onSubmit="return checkDelete()">
           @csrf
           <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
         </form>
+        @endif
       </tr>
       @endforeach
     </table>
