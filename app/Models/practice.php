@@ -19,6 +19,7 @@ class Practice extends Model
         'time',
         'total',
         'impression',
-        'user_id'
+        'user_id',
+        'date'
     ];
 }
