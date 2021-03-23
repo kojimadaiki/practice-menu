@@ -3,11 +3,12 @@
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset-2">
-    <h2>{{ $practice->date }} </h2>
+    <h2>{{ $menu->date }} </h2>
     <table class="table table-striped">
       <tr>
         <th>SKP</th>
         <th>距離</th>
+        <th></th>
         <th>本数</th>
         <th>サークル</th>
         <th>種目</th>
@@ -15,17 +16,18 @@
         <th>トータル</th>
       </tr>
       <tr>
-        <th>{{ $practice->title }}</th>
-        <th>{{ $practice->long }}</th>
-        <th>{{ $practice->times }}</th>
-        <th>{{ $practice->time }}</th>
-        <th>{{ $practice->style }}</th>
-        <th>{{ $practice->strength }}</th>
-        <th>{{ $practice->total }}</th>
+        <td>{{ $menu->title }}</td>
+        <td>{{ $menu->long }}</td>
+        <td>×</td>
+        <td>{{ $menu->times }}t</td>
+        <td>{{ $menu->time }}</td>
+        <td>{{ $menu->style }}</td>
+        <td>{{ $menu->strength }}</td>
+        <td>{{ $menu->total }}</td>
       </tr>
     </table>
     <label for="style">
-      感想・反省：{{ $practice->impression }}
+      感想・反省：{{ $menu->impression }}
     </label>
   </div>
 </div>

@@ -34,6 +34,7 @@
         <tr>
           <th>SKP</th>
           <th>距離</th>
+          <th></th>
           <th>本数</th>
           <th>サークル</th>
           <th>種目</th>
@@ -47,6 +48,7 @@
           <td>
             <input id="long" name="long" class="form-control" rows="4">
           </td>
+          <td>×</td>
           <td>
             <input id="times" name="times" class="form-control" rows="4">
           </td>

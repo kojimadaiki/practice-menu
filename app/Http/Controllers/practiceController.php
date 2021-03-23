@@ -15,9 +15,7 @@ class PracticeController extends Controller
 {
   public function top() {
 
-    $practices = Practice::all();
-
-    return view('practice.top', ['practices' => $practices]);
+    return view('practice.top');
   }
 
   // public function show($id) {
@@ -62,27 +60,27 @@ class PracticeController extends Controller
   //   return view('practice.edit', ['practice' => $practice]);
   // }
 
-  public function update(PracticeRequest $request) {
-    $inputs = $request->all();
+  // public function update(PracticeRequest $request) {
+  //   $inputs = $request->all();
 
-    \DB::beginTransaction();
-    try {
-      $practice = Practice::find($inputs['id']);
-      $practice->fill([
-        'title' => $inputs['title'],
-        'style' => $inputs['style'],
-        'times' => $inputs['times'],
-        'content' => $inputs['content']
-      ]);
-      $practice->save();
-      \DB::commit();
-    } catch(\Throwable $e) {
-      \DB::rollback();
-      abort(500);
-    }
-    \Session::flash('err_msg', 'ブログを更新しました');
-      return redirect(route('practice'));
-  }
+  //   \DB::beginTransaction();
+  //   try {
+  //     $practice = Practice::find($inputs['id']);
+  //     $practice->fill([
+  //       'title' => $inputs['title'],
+  //       'style' => $inputs['style'],
+  //       'times' => $inputs['times'],
+  //       'content' => $inputs['content']
+  //     ]);
+  //     $practice->save();
+  //     \DB::commit();
+  //   } catch(\Throwable $e) {
+  //     \DB::rollback();
+  //     abort(500);
+  //   }
+  //   \Session::flash('err_msg', 'ブログを更新しました');
+  //     return redirect(route('practice'));
+  // }
 
   public function delete($id) {
 
@@ -162,5 +160,33 @@ class PracticeController extends Controller
     }
 
     return view('show', ['practice' => $practice]);
+  }
+
+  public function update(MenuRequest $request) {
+    $inputs = $request->all();
+
+    \DB::beginTransaction();
+    try {
+      $practice = Practice::find($inputs['id']);
+      $practice->fill([
+        'title' => $inputs['title'],
+        'style' => $inputs['style'],
+        'times' => $inputs['times'],
+        'time' => $inputs['time'],
+        'long' => $inputs['long'],
+        'strength' => $inputs['strength'],
+        'total' => $inputs['total'],
+        'impression' => $inputs['impression'],
+        'date' => $inputs['date'],
+      ]);
+      $practice->save();
+      \DB::commit();
+    } catch(\Throwable $e) {
+      dd($e);
+      \DB::rollback();
+      abort(500);
+    }
+    \Session::flash('err_msg', 'ブログを更新しました');
+      return redirect(route('watch'));
   }
 }

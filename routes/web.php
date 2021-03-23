@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\Auth\AuthController;
 
 
@@ -17,7 +18,7 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-Route::get('/', [PracticeController::class, 'top'])->name('user');
+Route::get('/', [MenuController::class, 'top'])->name('user');
 
 Route::get('/practice/create', [PracticeController::class, 'create'])->name('create');
 
@@ -27,7 +28,7 @@ Route::post('/practice/store', [PracticeController::class, 'store'])->name('stor
 
 // Route::get('/practice/edit/{id}', [PracticeController::class, 'edit'])->name('edit');
 
-Route::post('/practice/update', [PracticeController::class, 'update'])->name('update');
+// Route::post('/practice/update', [PracticeController::class, 'update'])->name('update');
 
 Route::post('/practice/delete/{id}', [PracticeController::class, 'delete'])->name('delete');
 
@@ -38,12 +39,26 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/post', [PracticeController::class, 'post'])->name('post')->middleware('auth');
+// Route::get('/post', [PracticeController::class, 'post'])->name('post')->middleware('auth');
 
-Route::post('/menu', [PracticeController::class, 'menuPost'])->name('menu')->middleware('auth');
+// Route::post('/menu', [PracticeController::class, 'menuPost'])->name('menu')->middleware('auth');
 
-Route::get('/watch', [PracticeController::class, 'watch'])->name('watch')->middleware('auth');
+// Route::get('/watch', [PracticeController::class, 'watch'])->name('watch')->middleware('auth');
 
-Route::get('/watch/edit/{id}', [PracticeController::class, 'edit'])->name('edit')->middleware('auth');
+// Route::get('/watch/edit/{id}', [PracticeController::class, 'edit'])->name('edit')->middleware('auth');
 
-Route::get('/watch/{id}', [PracticeController::class, 'show'])->name('show');
+// Route::get('/watch/{id}', [PracticeController::class, 'show'])->name('show')->middleware('auth');
+
+// Route::post('/watch/update', [PracticeController::class, 'update'])->name('update')->middleware('auth');
+
+Route::get('/post', [MenuController::class, 'post'])->name('post')->middleware('auth');
+
+Route::post('/menu', [MenuController::class, 'menuPost'])->name('menu')->middleware('auth');
+
+Route::get('/watch', [MenuController::class, 'watch'])->name('watch')->middleware('auth');
+
+Route::get('/watch/edit/{id}', [MenuController::class, 'edit'])->name('edit')->middleware('auth');
+
+Route::get('/watch/{id}', [MenuController::class, 'show'])->name('show')->middleware('auth');
+
+Route::post('/watch/update', [MenuController::class, 'update'])->name('update')->middleware('auth');
