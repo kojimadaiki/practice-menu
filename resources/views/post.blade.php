@@ -22,16 +22,8 @@
         </ul>
       </div>
       @endif
-
-      <div class="form-group">
-        @if ($errors->has('title'))
-        <div class="text-danger">
-          {{ $errors->first('title') }}
-        </div>
-        @endif
-      </div>
       <table class="table table-striped">
-        <tr>
+        <tr class="etc">
           <th>SKP</th>
           <th>距離</th>
           <th></th>
