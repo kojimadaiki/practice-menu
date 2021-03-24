@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
   <div class="col-md-10 col-md-offset-2">
-    <h2>メイン練習一覧</h2>
+    <h2 class="top-message">メイン練習一覧</h2>
     @if (session('err_msg'))
     <p class="text_danger">{{ session('err_msg')}}</p>
     @endif
@@ -20,7 +20,7 @@
         <td><button type="button" class="btn btn-primary" onclick="location.href='/watch/edit/{{ $menu->id }}'">編集</button></td>
         <form method="POST" action="{{ route('delete', $menu->id) }}" onSubmit="return checkDelete()">
           @csrf
-          <td><button type="submit" class="btn btn-primary" onclick=>削除</button></td>
+          <td><button type="submit" class="btn btn-danger" onclick=>削除</button></td>
         </form>
         @endif
       </tr>

@@ -151,7 +151,13 @@ return [
         'times' => '本数',
         'content' => 'ブログ内容',
         'email' => 'メールアドレス',
-        'password' => 'パスワード'
+        'password' => 'パスワード',
+        'strength' => '強度',
+        'long' => '距離',
+        'time' => 'サークル',
+        'total' => 'トータル',
+        'impression' => '感想・反省',
+        'date' => '練習日時'
     ],
 
 ];
