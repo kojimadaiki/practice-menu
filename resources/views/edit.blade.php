@@ -16,7 +16,7 @@
       <input type="hidden" name="id" value="{{ $menu->id }}">
       <div class="form-group">
         <table class="table table-striped">
-          <tr>
+          <tr class="etc">
             <th>SKP</th>
             <th>距離</th>
             <th></th>
@@ -48,7 +48,7 @@
               <input id="times" name="times" class="form-control" rows="4" value="{{ $menu->times }}">
               @if ($errors->has('times'))
               <div class="text-danger">
-                {{ $errors->first('times') }}t
+                {{ $errors->first('times') }}
               </div>
               @endif
             </th>
