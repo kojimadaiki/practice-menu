@@ -3,9 +3,9 @@
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset-2">
-    <h2>{{ $menu->date }} </h2>
+    <h2 class="top-message">練習日時：{{ $menu->date }} </h2>
     <table class="table table-striped">
-      <tr>
+      <tr class="etc">
         <th>SKP</th>
         <th>距離</th>
         <th></th>
@@ -15,7 +15,7 @@
         <th>強度</th>
         <th>トータル</th>
       </tr>
-      <tr>
+      <tr class="etc">
         <td>{{ $menu->title }}</td>
         <td>{{ $menu->long }}</td>
         <td>×</td>
