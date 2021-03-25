@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'サインイン')
 @section('content')
 <div class="signin">
   <div class="row justify-content-center">

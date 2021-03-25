@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', '詳細')
+@section('title', '詳細ページ')
 @section('content')
 <div class="row">
   <div class="col-md-12 col-md-offset-2">
